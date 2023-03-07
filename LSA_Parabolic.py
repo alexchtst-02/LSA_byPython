@@ -61,6 +61,8 @@ koef = np.linalg.solve(A, r)
 y0 = koef[0]*(data[0][0]**2) + koef[1]*data[0][0] + koef[2]
 y1 = koef[0]*(data[-1][0]**2) + koef[1]*data[-1][0] + koef[2]
 
+yPointsGenerator = lambda x : (koef[0])*x**2 + (koef[1])*x + (koef[2])
+
 my_yiteration = ((koef[0]*x*x + koef[1]*x + koef[2]) for x in range(-10, 13))
 my_xiteration = ((x) for x in range(-10, 13))
 xpoints = np.fromiter(my_xiteration, dtype=float)
@@ -68,7 +70,7 @@ ypoints = np.fromiter(my_yiteration, dtype=float)
 
 error = 0
 for i in data:
-    error = error + (ypoints(x) - y)**2
+    error = error + (yPointsGenerator(i[0]) - i[1])**2
 
 plt.plot(xpoints, ypoints)
 
