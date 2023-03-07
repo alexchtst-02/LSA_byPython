@@ -58,7 +58,7 @@ plt.show()
 
 error = 0
 for i in data:
-    error = error + (ypoints(x) - y)**2
+    error = error + (ypoints(i[0]) - i[1])**2
     
 print(koef)
 print(error)
