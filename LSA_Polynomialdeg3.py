@@ -69,7 +69,7 @@ yPoints = np.fromiter(yiteration, dtype=float)
 
 error = 0
 for i in data:
-    error = error + (ypoints(x) - y)**2
+    error = error + (yPointsGenerator(i[0]) - i[1])**2
 
 plt.plot(xPoints, yPoints)
 
